@@ -87,30 +87,19 @@ Import from file if you cloned the repo locally or enter the URL `https://raw.gi
 
 You should now have a notebook that looks like this:
 
-![adbnotebook](https://raw.githubusercontent.com/commonacumen/gitstartedwithdataengineering/main/images//adbnotebook.png)
+![adbnotebook](https://raw.githubusercontent.com/commonacumen/gitstartedwithdataengineering/main/images/adbnotebook.png)
 
 Change the value of the adlsAccountName = "<EnterStorageAccountNameHere>" in cell one to the ADLS AccountName of in your deployment
 
-In my chase my deployment has a Storage account name of `adfacceler7kdgtkhj5mpoa` so the first row of the cell would read:
+In my chase my deployment has a Storage account name of `cdcacceleredfkdd3zynq6k` so the first row of the cell would read:
 
 ```
-adlsAccountName = "adfacceler7kdgtkhj5mpoa"
+adlsAccountName = "cdcacceleredfkdd3zynq6k"
 ```
 
-![adbrgservices](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/adbrgservices.png)
+![adbrgservices](https://raw.githubusercontent.com/commonacumen/gitstartedwithdataengineering/main/images/adbrgservices.png)
 
-Note if you change any column values in the `ControlTableForSourceToSink` table make the appropriate changes.
-
-![adbfolderpath](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/adbfolderpath.png)
-
-The notebook would now look like this:
-
-```
-sourceAdlsFolderName = CDC/Sales/Microsoft/AdventureWorksLT/SalesLT/Address
-sinkAdlsFolderName = CDC/Sales/Microsoft/AdventureWorksLT/SalesLT/Address
-```
-
-![adbadlsacctname](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/adbadlsacctname.png)
+![adbadlsacctname](https://raw.githubusercontent.com/commonacumen/gitstartedwithdataengineering/main/images/adbadlsacctname.png)
 
 ### Configure Service Principal and Permissions
 
@@ -124,41 +113,31 @@ Create an [Azure Active Directory app and service principal](https://docs.micros
 
 3. Select App registrations.
 
-![adbappreg](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/adbappreg.png)
+![adbappreg](https://raw.githubusercontent.com/commonacumen/gitstartedwithdataengineering/main/images/adbappreg.png)
 
 4. Select New registration.
 
-Name the application something like `autoloader-darsch`. Select a supported account type, which determines who can use the application. After setting the values, select Register.
+Name the application something like `databricksSrvPrin`. Select a supported account type, which determines who can use the application. After setting the values, select Register.
 
-Note that it is a good idea to name the application with something unique to you like your email alias (darsch in my case) because other might use similar names like autoloader.
+Note that it is a good idea to name the application with something unique to you like your email alias (darsch in my case) because other might use similar names like `databricksSrvPrin`.
 
-![adbregister](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/adbregister.png)
+![adbregister](https://raw.githubusercontent.com/commonacumen/gitstartedwithdataengineering/main/images/adbregister.png)
 
 5. Copy the Directory (tenant) ID and store it to use to create an application secret.
 
 6. Copy the Application (client) ID and store it to use to create an application secret.
 
-![adbappids](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/adbappids.png)
+![adbappids](https://raw.githubusercontent.com/commonacumen/gitstartedwithdataengineering/main/images/adbappids.png)
 
-*Assign Role Permissions* [Reference](https://docs.microsoft.com/en-us/azure/databricks/spark/latest/structured-streaming/auto-loader-gen2#permissions)
+**Assign Role Permissions** 
 
-7. At storage account level assign this app the following roles to the storage account in which the input path resides:
-
-    `Contributor`: This role is for setting up resources in your storage account, such as queues and event subscriptions.
-
-    `Storage Queue Data Contributor`: This role is for performing queue operations such as retrieving and deleting messages from the queues. This role is required in Databricks Runtime 8.1 and above only when you provide a service principal without a connection string. 
+7. At storage account level assign this app service pricipal the following role to the storage account in which the input path resides:
     
     `Storage Blob Data Contributor` to access storage
 
-![adbstorageiam](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/adbstorageiam.png)
+![adbstorageiam](https://raw.githubusercontent.com/commonacumen/gitstartedwithdataengineering/main/images/adbstorageiam.png)
 
-8. At resource group level assign this app the following role to the related resource group:
-
-    `EventGrid EventSubscription Contributor`: This role is for performing event grid subscription operations such as creating or listing event subscriptions.
-
-![adbrgiam](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/adbrgiam.png)
-
-*Create a new application secret*
+**Create a new application secret**
 
 - Select Azure Active Directory.
 
@@ -170,11 +149,11 @@ Note that it is a good idea to name the application with something unique to you
 
 - Provide a description `AppSecret` of the secret, and a duration. When done, select Add.
 
-![adbappsecret](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/adbappsecret.png)
+![adbappsecret](https://raw.githubusercontent.com/commonacumen/gitstartedwithdataengineering/main/images/adbappsecret.png)
 
 After saving the client secret, the value of the client secret is displayed. Copy this value because you won't be able to retrieve the key later. You will provide the key value with the application ID to sign in as the application. Store the key value where your application can retrieve it.
 
-![adbappsecretval](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/adbappsecretval.png)
+![adbappsecretval](https://raw.githubusercontent.com/commonacumen/gitstartedwithdataengineering/main/images/adbappsecretval.png)
 
 ### Deploy a Key Vault and setup secrets
 
