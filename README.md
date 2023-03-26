@@ -220,24 +220,24 @@ Adls2-KeySecret
 
 The Adls2-KeySecret is created using the storage account key
 
-![secrets](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/secrets.png)
+![secrets](https://raw.githubusercontent.com/commonacumen/gitstartedwithdataengineering/main/images/secrets.png)
 
 
 **Create an Azure Key Vault-backed secret scope using the UI** [Reference](https://docs.microsoft.com/en-us/azure/databricks/security/secrets/secret-scopes#create-an-azure-key-vault-backed-secret-scope-using-the-ui)
 
 Verify that you have Contributor permission on the Azure Key Vault instance that you want to use to back the secret scope.
 
-Go to https://<databricks-instance>#secrets/createScope. This URL is case sensitive; The "S" in scope in createScope must be uppercase.
+Go to https://databricks-instance/#secrets/createScope. This URL is case sensitive; The "S" in scope in createScope must be uppercase.
 
-https://<databricks-instance>#secrets/createScope
+https://databricks-instance/#secrets/createScope
 
-In my case `https://adb-3272096941209353.13.azuredatabricks.net#secrets/createScope`
+In my case `https://adb-1558951773184856.16.azuredatabricks.net/#secrets/createScope`
 
 You can find the databricks-instance in the URL of your workspace
 
-![adbinstance](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/adbinstance.png)
+![adbinstance](https://raw.githubusercontent.com/commonacumen/gitstartedwithdataengineering/main/images/adbinstance.png)
 
-Enter Scope Name: I choose something like `demo-autoloader` which is what I used in the notebook
+Enter Scope Name: I choose something like `databricksSrvPrin` which is what I used in the notebook
 
 Manage Principal:  `All Users`
 
@@ -248,11 +248,11 @@ Resource ID: Find in the properties of the Key vault.  Looks something like this
 ```
 /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/databricks-rg/providers/Microsoft.KeyVault/vaults/databricksKV
 ```
-![adbsecretResID](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/adbsecretResID.png)
+![adbsecretResID](https://raw.githubusercontent.com/commonacumen/gitstartedwithdataengineering/main/images/adbsecretResID.png)
 
 Click Create
 
-![adbsecretscope](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/adbsecretscope.png)
+![adbsecretscope](https://raw.githubusercontent.com/commonacumen/gitstartedwithdataengineering/main/images/adbsecretscope.png)
 
 
 ### Create a Databricks Cluster and attach to notebook
