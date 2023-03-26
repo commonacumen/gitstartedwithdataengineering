@@ -179,15 +179,15 @@ Open up you Key vault and add the appsecret created above
 
 Choose Secrets and click Generate/Import
 
-![adbkvsecretgen](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/adbkvsecretgen.png)
+![adbkvsecretgen](https://raw.githubusercontent.com/commonacumen/gitstartedwithdataengineering/main/images/adbkvsecretgen.png)
 
 Enter you secret Name and paste in the app secret you created earlier, set activation date and click Create
 
-![adbcreatesecret](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/adbcreatesecret.png)
+![adbcreatesecret](https://raw.githubusercontent.com/commonacumen/gitstartedwithdataengineering/main/images/adbcreatesecret.png)
 
 It should look like this:
 
-![adbfirstsecret](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/adbfirstsecret.png)
+![adbfirstsecret](https://raw.githubusercontent.com/commonacumen/gitstartedwithdataengineering/main/images/adbfirstsecret.png)
 
 *Create the rest of the secrets you need for the notebook*
 
