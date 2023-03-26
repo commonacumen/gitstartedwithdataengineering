@@ -79,15 +79,15 @@ You can now save the pipeline by clicking on Publish all
 
 Open up you Databricks workspace and navigate to your user, select the dropdown and select import
 
-![adbworkspace](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/adbworkspace.png)
+![adbworkspace](https://raw.githubusercontent.com/commonacumen/gitstartedwithdataengineering/main/images//adbworkspace.png)
 
-Import from file if you cloned the repo locally or enter the URL `https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/usecases/cdc/code/notebooks/autoloadersp.ipynb` to the Notebook in GitHub Repo [autoloadersp.ipynb](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/usecases/cdc/code/notebooks/autoloadersp.ipynb) and click Import
+Import from file if you cloned the repo locally or enter the URL `https://raw.githubusercontent.com/commonacumen/gitstartedwithdataengineering/main/code/notebooks/ConnectToDeltaOnADLS.ipynb` to the Notebook in GitHub Repo [ConnectToDeltaOnADLS.ipynb](https://raw.githubusercontent.com/commonacumen/gitstartedwithdataengineering/main/code/notebooks/ConnectToDeltaOnADLS.ipynb) and click Import
 
-![adbnotebookimport](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/adbnotebookimport.png)
+![adbnotebookimport](https://raw.githubusercontent.com/commonacumen/gitstartedwithdataengineering/main/images/adbnotebookimport.png)
 
 You should now have a notebook that looks like this:
 
-![adbnotebook](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/adbnotebook.png)
+![adbnotebook](https://raw.githubusercontent.com/commonacumen/gitstartedwithdataengineering/main/images//adbnotebook.png)
 
 Change the value of the adlsAccountName = "<EnterStorageAccountNameHere>" in cell one to the ADLS AccountName of in your deployment
 
