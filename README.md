@@ -159,19 +159,17 @@ After saving the client secret, the value of the client secret is displayed. Cop
 
 Create a Key Vault in the Resource group by clicking Create
 
-![adbrgservices](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/adbrgservices.png)
-
 Search for `Key vault`
 
-![adbkvsearch](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/adbkvsearch.png)
+![adbkvsearch](https://raw.githubusercontent.com/commonacumen/gitstartedwithdataengineering/main/images//adbkvsearch.png)
 
 Click Create
 
-![adbkvcreate](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/adbkvcreate.png)
+![adbkvcreate](https://raw.githubusercontent.com/commonacumen/gitstartedwithdataengineering/main/images/adbkvcreate.png)
 
 Create the Key Vault in the same Resource group and Region as you other resource deployed. Click Review and Create and then click Create
 
-![adbrevcreate](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/adbrevcreate.png)
+![adbrevcreate](https://raw.githubusercontent.com/commonacumen/gitstartedwithdataengineering/main/images/adbrevcreate.png)
 
 You should now have a Key vault in your resources
 
