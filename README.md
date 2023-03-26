@@ -173,7 +173,7 @@ Create the Key Vault in the same Resource group and Region as you other resource
 
 You should now have a Key vault in your resources
 
-![adbrgwithkv](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/adbrgwithkv.png)
+![adbrgwithkv](https://raw.githubusercontent.com/commonacumen/gitstartedwithdataengineering/main/images/adbrgwithkv.png)
 
 Open up you Key vault and add the appsecret created above
 
