@@ -15,73 +15,53 @@ These datasets have been included in the data folder in this GitHub Repo [Datase
 
 Download [ADF Template zip](https://github.com/commonacumen/gitstartedwithdataengineering/tree/main/code/adfTemplates) or find it in your cloned GitHub Repo.
 
-![adftemplatezip](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/adftemplatezip.png)
+![adftemplatezip](https://raw.githubusercontent.com/commonacumen/gitstartedwithdataengineering/main/images/adftemplatezip.png)
 
 Open up the ADF deployed by the ARM template.  Select Pipeline > Import from pipeline template 
 
-![adfplfromtemplate](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/adfplfromtemplate.png)
+![adfplfromtemplate](https://raw.githubusercontent.com/commonacumen/gitstartedwithdataengineering/main/images/adfplfromtemplate.png)
 
 Click on the zip file and click Open
 
-![adfOpenLocalTemplate](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/adfOpenLocalTemplate.png)
+![adfOpenLocalTemplate](https://raw.githubusercontent.com/commonacumen/gitstartedwithdataengineering/main/images/adfOpenLocalTemplate.png)
 
 It should look like this
 
-![adftemplateUserinputs](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/adftemplateUserinputs.png)
+![adftemplateUserinputs](https://raw.githubusercontent.com/commonacumen/gitstartedwithdataengineering/main/images/adftemplateUserinputs.png)
 
-Select +New in the first User input and create an Azure SQL Database Linked Service to the database deployed by the ARM template.
+Select +New in the first User input and create an HTTP Linked Service.
 
-![adfDatabaseLinkedService](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/adfDatabaseLinkedService.png)
+![adfHttpLinkedService](https://raw.githubusercontent.com/commonacumen/gitstartedwithdataengineering/main/images/adfHttpLinkedService.png)
+
+Make sure the url is using raw
+
+`https://raw.githubusercontent.com/commonacumen/gitstartedwithdataengineering/main/data/`
 
 Select +New in the second User input and create an Azure Data Lake Storage Gen2 Linked Service 
 
-![adfAdlsLinkedService](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/adfAdlsLinkedService.png)
-
-For Input 3 select the same Database you chose in Input 1 
-
-For Input 4 select the same Database you chose in Input 1
-
-For Input 5 select the same Storage input you chose in Input 2
-
-For Input 6 select the same Database you chose in Input 1 
-
-For Input 7 select the same Database you chose in Input 1
+![adfAdlsLinkedService](https://raw.githubusercontent.com/commonacumen/gitstartedwithdataengineering/main/images/adfAdlsLinkedService.png)
 
 Then click on Use this template
 
-![adfAllUserinputs.png](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/adfAllUserinputs.png)
+![adfAllUserinputs.png](https://raw.githubusercontent.com/commonacumen/gitstartedwithdataengineering/main/images/adfAllUserinputs.png)
 
 It should look like this when it is imported
 
-![adfTemplateImported](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/adfTemplateImported.png)
+![adfTemplateImported](https://raw.githubusercontent.com/commonacumen/gitstartedwithdataengineering/main/images/adfTemplateImported.png)
 
-## Step 3 Debug the DeltaCopyAndFullCopyfromDB_using_ControlTable Pipeline 
+## Step 3 Debug the DiabetesCopyAndTransformDataToDelta Pipeline 
 
-Click on Debug, enter the name of the Control table `ControlTableForSourceToSink`
-Click OK
-
-![adfDebugPipelineRun](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/adfDebugPipelineRun.png)
+Click on Debug, and Click OK
 
 Once the pipeline runs successfully it should look like this
 
-![adfSuccessfulRun](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/adfSuccessfulRun.png)
+![adfSuccessfulRun](https://raw.githubusercontent.com/commonacumen/gitstartedwithdataengineering/main/images/adfSuccessfulRun.png)
 
-Check that the files have been created in Storage using [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) or the Azure Portal in the browser.  The files should be in bronze container at a path like `CDC/Sales/Microsoft/AdventureWorksLT/SalesLT/Address/`
+Check that the files have been created in Storage using [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) or the Azure Portal in the browser.  The files should be in silver container at a path like `diabetes/adfdelta/`
 
-![adfFileInStorage](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/adfFileInStorage.png)
-
-If you run the pipeline a second time you will see another file created.  Since the Address table has a ModifiedDate column which can be used as a Watermark the second file (smaller 102 bytes) only contains a header since there were no changes (unless some updates are done to the Address table)
-
-![adfFileInStorage2](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/adfFileInStorage2.png)
-
-If you compare this file to the studentMath files (which does not have a watermark column) they are the same size because it in not doing a delta.  The file will get larger as inserts and update happen in the studentMath table.
-
-![adfFileInStorage3](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/adfFileInStorage3.png)
-
+![adfFileInStorage](https://raw.githubusercontent.com/commonacumen/gitstartedwithdataengineering/main/images/adfFileInStorage.png)
 
 You can now save the pipeline by clicking on Publish all
-
-
 
 ## Step 4 Import, configure, and run the Databricks notebook
 
