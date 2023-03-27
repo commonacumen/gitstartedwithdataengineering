@@ -261,29 +261,29 @@ Create a cluster using the Runtime 8.3 or above
 
 Enter Cluster Name, Runtime Version, Set Terminate after, Min Workers, Max Workers and click Create Cluster
 
-![adbcreatecluster](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/adbcreatecluster.png)
+![adbcreatecluster](https://raw.githubusercontent.com/commonacumen/gitstartedwithdataengineering/main/images/adbcreatecluster.png)
 
-### Add the Scopes into Cells 2 and 4
+### Add the Scopes into Cells 3 and 5
 
-Change the value of "<EnterDatabrickSecretScopeHere>" in cell 2 and 4 to the Scope name you created earlier.
+Change the value of EnterDatabrickSecretScopeHere in cell 3 and 5 to the Scope name you created earlier.
 
-In my chase `demo-autoloader` so the 2 cell would read:
+In my chase `databricksSrvPrin` so the 3 cell would read:
 
 ```
 spark.conf.set(
     "fs.azure.account.key." + adlsAccountName + ".dfs.core.windows.net",
-    dbutils.secrets.get(scope="demo-autoloader",key="Adls2-KeySecret"))
+    dbutils.secrets.get(scope="databricksSrvPrin",key="Adls2-KeySecret"))
 ```
 
-The 4 cell would read:
+The 5 cell would read:
 
 ```
-SubscriptionID = dbutils.secrets.get("demo-autoloader","SubscriptionID")
-DirectoryID = dbutils.secrets.get("demo-autoloader","DirectoryID")
-ServicePrincipalAppID = dbutils.secrets.get("demo-autoloader","ServicePrincipalAppID")
-ServicePrincipalSecret = dbutils.secrets.get("demo-autoloader","AppSecret")
-ResourceGroup = dbutils.secrets.get("demo-autoloader","ResourceGroup")
-BlobConnectionKey = dbutils.secrets.get("demo-autoloader","Adls2-KeySecret")
+SubscriptionID = dbutils.secrets.get("databricksSrvPrin","SubscriptionID")
+DirectoryID = dbutils.secrets.get("databricksSrvPrin","DirectoryID")
+ServicePrincipalAppID = dbutils.secrets.get("databricksSrvPrin","ServicePrincipalAppID")
+ServicePrincipalSecret = dbutils.secrets.get("databricksSrvPrin","AppSecret")
+ResourceGroup = dbutils.secrets.get("databricksSrvPrin","ResourceGroup")
+BlobConnectionKey = dbutils.secrets.get("databricksSrvPrin","Adls2-KeySecret")
 ```
 
 ### Run the notebook one cell at a time (at least the first time)
@@ -296,6 +296,6 @@ Click on Run Cell
 
 Do this for the next cell down etc.
 
-You can skip cell 6 the first time because nothing has been mounted.  You may get an error like this:
+You can skip cell 8 the first time because nothing has been mounted.  You may get an error like this in cell 7:
 
 ![adbunmount](https://raw.githubusercontent.com/Azure/Azure-DataFactory/main/SamplesV2/ChangeDataCapture/images/adbunmount.png)
